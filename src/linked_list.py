@@ -5,14 +5,16 @@ from typing import Any
 class LinkedList:
     """ Class representation of a LinkedList"""
 
-    def __init__(self, values = None) -> None:
+    def __init__(self, values: Iterable | None = None) -> None:
         self.head = None
         self.length = 0
-        if values is Iterable:
+        try:
             for item in values:
                 self.push(item)
+        except TypeError:
+            print("values must be iterable or None")
 
-    def push(self, value = None) -> None:
+    def push(self, value: Any | None = None) -> None:
         self.head = Node(value, self.head)
         self.length += 1
 

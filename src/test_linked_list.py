@@ -15,8 +15,12 @@ def test_node_init():
     new_node = Node(0, None)
     assert new_node.val == 0 and new_node.next == None
 
-def test_linked_list_empty_size(sample_linked_list):
+def test_linkedlist_empty_size(sample_linked_list):
     assert sample_linked_list["empty_llist"].length == 0
 
-def test_linked_list_empty_head(sample_linked_list):
+def test_linkedlist_empty_head(sample_linked_list):
     assert sample_linked_list["empty_llist"].head == None
+
+def test_linkedlist_init_one_size(sample_linked_list):
+    print
+    assert sample_linked_list["one_llist"].length == 1
