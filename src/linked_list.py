@@ -37,6 +37,21 @@ class LinkedList:
             if matching_node.next is None: return None
         return matching_node
 
+    def remove(self, target_node: Node) -> None:
+        """Remove a specific node from the list"""
+        if not self.length:
+            raise ValueError("the list is empty")
+        curr_node = self.head
+        if curr_node is target_node:
+            self.head = curr_node.next
+            self.length -= 1
+            return None
+        while curr_node.next is not target_node:
+            curr_node = curr_node.next
+            if curr_node.next is None: return None
+        curr_node.next = curr_node.next.next
+        self.length -= 1
+
 
 class Node:
     """Singly linked node containing a value and pointer to another node"""

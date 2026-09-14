@@ -43,3 +43,14 @@ def test_linkedlist_search(sample_linked_list):
     assert sample_linked_list["new_llist"].search(100) is None
     assert sample_linked_list["new_llist"].search(5).val == 5
     assert sample_linked_list["empty_llist"].search(100) is None
+
+def test_linkedlist_remove(sample_linked_list):
+    with pytest.raises(ValueError):
+        from linked_list import Node
+        node = Node()
+        sample_linked_list["empty_llist"].remove(node)
+    target_node = sample_linked_list["new_llist"].search(2)
+    sample_linked_list["new_llist"].remove(target_node)
+    assert sample_linked_list["new_llist"].search(2) is None
+    sample_linked_list["new_llist"].remove(sample_linked_list["new_llist"].head)
+    assert sample_linked_list["new_llist"].search(5) is None
