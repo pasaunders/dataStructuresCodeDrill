@@ -27,6 +27,17 @@ class LinkedList:
         self.length -= 1
         return old_head
 
+    def search(self, search_val: Any | None = None) -> Node | None:
+        """return the first node with a matching value"""
+        if self.head is None:
+            return None
+        matching_node = self.head
+        while matching_node.val is not search_val:
+            matching_node = matching_node.next
+            if matching_node.next is None: return None
+        return matching_node
+
+
 class Node:
     """Singly linked node containing a value and pointer to another node"""
     def __init__(self, val: Any | None = None, next: Node | None = None) -> None:

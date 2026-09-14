@@ -38,3 +38,8 @@ def test_linkedlist_push(sample_linked_list):
 def test_linkedlist_pop(sample_linked_list):
     assert sample_linked_list["new_llist"].pop().val == 5
     assert sample_linked_list["new_llist"].length == 4
+
+def test_linkedlist_search(sample_linked_list):
+    assert sample_linked_list["new_llist"].search(100) is None
+    assert sample_linked_list["new_llist"].search(5).val == 5
+    assert sample_linked_list["empty_llist"].search(100) is None
