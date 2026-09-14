@@ -22,5 +22,19 @@ def test_linkedlist_empty_head(sample_linked_list):
     assert sample_linked_list["empty_llist"].head == None
 
 def test_linkedlist_init_one_size(sample_linked_list):
-    print
     assert sample_linked_list["one_llist"].length == 1
+
+def test_linkedlist_init_list_size(sample_linked_list):
+    assert sample_linked_list["new_llist"].length == 5
+
+def test_linkedlist_init_list_head_expected_value(sample_linked_list):
+    assert sample_linked_list["new_llist"].head.val == 5
+
+def test_linkedlist_push(sample_linked_list):
+    sample_linked_list["empty_llist"].push("a")
+    assert sample_linked_list["empty_llist"].length == 1
+    assert sample_linked_list["empty_llist"].head.val == "a"
+
+def test_linkedlist_pop(sample_linked_list):
+    assert sample_linked_list["new_llist"].pop().val == 5
+    assert sample_linked_list["new_llist"].length == 4

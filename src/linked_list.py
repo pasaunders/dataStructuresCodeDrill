@@ -18,6 +18,14 @@ class LinkedList:
         self.head = Node(value, self.head)
         self.length += 1
 
+    def pop(self) -> Node | None:
+        """remove and return the head node"""
+        if not self.head:
+            return None
+        old_head = self.head
+        self.head = self.head.next
+        self.length -= 1
+        return old_head
 
 class Node:
     """Singly linked node containing a value and pointer to another node"""
