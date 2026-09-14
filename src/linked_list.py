@@ -5,11 +5,12 @@ from typing import Any
 class LinkedList:
     """ Class representation of a LinkedList"""
 
-    def __init__(self, values : Iterable | None = None) -> None:
+    def __init__(self, values = None) -> None:
         self.head = None
         self.length = 0
-        for item in values:
-            self.push(item)
+        if values is Iterable:
+            for item in values:
+                self.push(item)
 
     def push(self, value = None) -> None:
         self.head = Node(value, self.head)
