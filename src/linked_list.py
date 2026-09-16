@@ -52,6 +52,15 @@ class LinkedList:
         curr_node.next = curr_node.next.next
         self.length -= 1
 
+    def display(self) -> Iterable:
+        current_node = self.head
+        return_list = [current_node.val]
+        while current_node.next is not None:
+            current_node = current_node.next
+            return_list.append(current_node.val)
+        return return_list
+
+
 
 class Node:
     """Singly linked node containing a value and pointer to another node"""
