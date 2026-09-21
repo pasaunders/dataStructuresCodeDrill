@@ -54,3 +54,7 @@ def test_linkedlist_remove(sample_linked_list):
     assert sample_linked_list["new_llist"].search(2) is None
     sample_linked_list["new_llist"].remove(sample_linked_list["new_llist"].head)
     assert sample_linked_list["new_llist"].search(5) is None
+
+def test_linkedlist_display(sample_linked_list):
+    """Test for LinkedList display."""
+    assert sample_linked_list["new_llist"].display() == [5, 4, 3, 2, 1]
