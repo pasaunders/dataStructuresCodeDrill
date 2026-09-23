@@ -1,0 +1,69 @@
+from __future__ import annotations
+from collections.abc import Iterable
+from typing import Any
+
+class LinkedList:
+    """ Class representation of a LinkedList"""
+
+    def __init__(self, values: Iterable | None = None) -> None:
+        self.head = None
+        self.length = 0
+        try:
+            for item in values:
+                self.push(item)
+        except TypeError:
+            print("values must be iterable or None")
+
+    def push(self, value: Any | None = None) -> None:
+        self.head = Node(value, self.head)
+        self.length += 1
+
+    def pop(self) -> Node | None:
+        """remove and return the head node"""
+        if not self.head:
+            return None
+        old_head = self.head
+        self.head = self.head.next
+        self.length -= 1
+        return old_head
+
+    def search(self, search_val: Any | None = None) -> Node | None:
+        """return the first node with a matching value"""
+        if self.head is None:
+            return None
+        matching_node = self.head
+        while matching_node.val is not search_val:
+            matching_node = matching_node.next
+            if matching_node.next is None: return None
+        return matching_node
+
+    def remove(self, target_node: Node) -> None:
+        """Remove a specific node from the list"""
+        if not self.length:
+            raise ValueError("the list is empty")
+        curr_node = self.head
+        if curr_node is target_node:
+            self.head = curr_node.next
+            self.length -= 1
+            return None
+        while curr_node.next is not target_node:
+            curr_node = curr_node.next
+            if curr_node.next is None: return None
+        curr_node.next = curr_node.next.next
+        self.length -= 1
+
+    def display(self) -> Iterable:
+        current_node = self.head
+        return_list = [current_node.val]
+        while current_node.next is not None:
+            current_node = current_node.next
+            return_list.append(current_node.val)
+        return return_list
+
+
+
+class Node:
+    """Singly linked node containing a value and pointer to another node"""
+    def __init__(self, val: Any | None = None, next: Node | None = None) -> None:
+        self.val = val
+        self.next = next
