@@ -1,4 +1,4 @@
-from linked_list import LinkedList
+from linked_list import LinkedList, Node
 from collections.abc import Iterable
 from typing import Any
 
@@ -15,8 +15,8 @@ class Stack(object):
         self.linked_list.push(val)
         self.head = self.linked_list.head
 
-    def pop(self) -> Any:
+    def pop(self) -> Node:
         """remove and return the head node"""
-        old_head = self.linked_list.pop
+        old_head = self.linked_list.pop()
         self.head = self.linked_list.head
         return old_head
