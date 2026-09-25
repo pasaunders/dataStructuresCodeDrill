@@ -1,5 +1,5 @@
 from collections.abc import Iterable
-from typing import Any
+from typing import Any, Self
 
 
 class DoublyLinkedList(object):
@@ -29,10 +29,10 @@ class DoublyLinkedList(object):
             self.tail = Node(value, None, self.tail)
         self.length += 1
 
-    def pop(self) -> Node | None:
+    def pop(self) -> 'Node' | None:
         pass
 
-    def shift(self) -> Node | None:
+    def shift(self) -> 'Node' | None:
         pass
 
     def remove(self, val) -> None:
@@ -40,7 +40,7 @@ class DoublyLinkedList(object):
 
 class Node(object):
     """doubly linked list node"""
-    def __init__(self, val: Any | None, next: 'Node' | None, prev: 'Node' | None):
+    def __init__(self, val: Any | None, next: Self | None, prev: Self | None):
         self.val = val
         self.next = next
         self.prev = prev
